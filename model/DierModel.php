@@ -72,10 +72,12 @@ function showUpdateDier(){
 
 			// Get Patient for id
 			$db = openDatabaseConnection();
-			$id = isset($_GET['id']) ? $_GET['id'] : '';
+			$id = $_GET['id'];
 			
 			$query=$db->prepare("Select * from dier where id=?");
 			$query->execute(array($dier));
+			var_dump($id);
+			var_dump($dier);
 	}
 
 ?>
