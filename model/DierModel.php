@@ -39,7 +39,7 @@ function delete($id)
 	}
 
 	var_dump($id);
-	//header("Location:" . URL . "dier/index");
+	header("Location:" . URL . "dier/index");
 }
 
 /*function editHabbo($id)
