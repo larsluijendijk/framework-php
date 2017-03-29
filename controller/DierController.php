@@ -12,11 +12,11 @@ function create()
 	//formulier tonen
 	render("dier/create");
 }
-function edit()
+function edit($id)
 {
 	//formulier tonen
 	render("dier/edit",array(
-	'dier' => showUpdateDier()
+	'dier' => showUpdateDier($id)
 	));
 }
 function createSave()
@@ -28,11 +28,11 @@ function createSave()
 	header("Location:" . URL . "dier/index");
 }
 function createUpdate(){
-
-		if (isset($_POST['naam']) && isset($_POST['ras']) && isset($_POST['geboren'])){
-		updateDier($_POST['naam'], $_POST['ras'], $_POST['geboren']);
+		var_dump($_POST['naam']);
+		if (isset($_POST['id']) && isset($_POST['naam']) && isset($_POST['ras']) && isset($_POST['geboren'])){
+		updateDier($_POST['id'], $_POST['naam'], $_POST['ras'], $_POST['geboren']);
 	}
-	//header/("Location:" . URL . "dier/index");
+	header("Location:" . URL . "dier/index");
 }
 
 

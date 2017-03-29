@@ -38,8 +38,19 @@ function delete($id)
 		deleteDier($id);
 	}
 
-	header("Location:" . URL . "dier/index");
+	var_dump($id);
+	//header("Location:" . URL . "dier/index");
 }
+
+/*function editHabbo($id)
+{
+	if (isset($id)) {
+		showUpdateDier($id);
+	}
+
+	var_dump($id);
+	//header("Location:" . URL . "dier/index");
+}*/
 
 function createDier($naam, $ras, $geboren) 
 {
@@ -60,24 +71,23 @@ function updateDier($id, $naam, $ras, $geboren)
 {
 	$db = openDatabaseConnection();
 
-		// Prepare query and execute
 		$query = "update dier set naam='$naam', ras='$ras', geboren='$geboren' where id=$id";
 		$result = $db->query($query);
 
 	$db = null;
 }
 
-function showUpdateDier(){
-		$dier = NULL;
+function showUpdateDier($id){
 
-			// Get Patient for id
+	if (isset($id)):
 			$db = openDatabaseConnection();
-			$id = $_GET['id'];
-			
-			$query=$db->prepare("Select * from dier where id=?");
-			$query->execute(array($dier));
-			var_dump($id);
-			var_dump($dier);
-	}
 
+			$query=$db->prepare("SELECT id, naam, ras, geboren FROM dier WHERE id=$id");
+			$query->bindParam(':param', $param);
+			$query->execute();
+
+			$result = $query -> fetch();
+			return $result;
+		endif;
+}
 ?>
