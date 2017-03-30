@@ -1,15 +1,7 @@
-<div class="container">
-
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
-          </ul>
-        </nav>
+<?php
+include_once ("file:///C:/wamp/www/frameworkhospital/view/templates/header.php");
+?>
         <h3 class="text-muted">Update <?= $dier['naam']; ?></h3>
-      </div>
 
 <div class="row marketing">
 <div class="container">

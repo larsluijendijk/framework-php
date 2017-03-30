@@ -1,10 +1,11 @@
 <?php
 
+// function that does nothing
 function getClient($id) 
 {
 
 }
-
+// function that gets all the rows from dier.
 function getAllDieren() 
 {
 	$db = openDatabaseConnection();
@@ -18,7 +19,7 @@ function getAllDieren()
 	return $query->fetchAll();
 
 }
-
+// function deletes the row with the $id that was been given
 function deleteDier($id) 
 {
 	$db = openDatabaseConnection();
@@ -31,7 +32,7 @@ function deleteDier($id)
 
 	$db = null;
 }
-
+// calls the function deleteDier
 function delete($id)
 {
 	if (isset($id)) {
@@ -42,6 +43,7 @@ function delete($id)
 	header("Location:" . URL . "dier/index");
 }
 
+// a test function
 /*function editHabbo($id)
 {
 	if (isset($id)) {
@@ -52,6 +54,8 @@ function delete($id)
 	//header("Location:" . URL . "dier/index");
 }*/
 
+
+// creates a new row
 function createDier($naam, $ras, $geboren) 
 {
 	$db = openDatabaseConnection();
@@ -66,7 +70,7 @@ function createDier($naam, $ras, $geboren)
 
 	$db = null;
 }
-
+// updates a row
 function updateDier($id, $naam, $ras, $geboren) 
 {
 	$db = openDatabaseConnection();
@@ -76,7 +80,7 @@ function updateDier($id, $naam, $ras, $geboren)
 
 	$db = null;
 }
-
+// show the row that has been clicked to update.
 function showUpdateDier($id){
 
 	if (isset($id)):
